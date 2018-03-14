@@ -6,10 +6,13 @@
 package com.ceyentra.communicationSystem.business.custom.Impl;
 
 import com.ceyentra.communicationSystem.business.custom.RegistrationMessageBo;
+import com.ceyentra.communicationSystem.entity.RegistrationMessage;
 import com.ceyentra.communicationSystem.model.RegistrationDTO;
 import com.ceyentra.communicationSystem.repository.RepositoryFactory;
 import com.ceyentra.communicationSystem.repository.custom.RegistrationMessageRepository;
+import com.ceyentra.communicationSystem.resources.HibernateUtil;
 import java.util.List;
+import org.hibernate.Session;
 
 /**
  *
@@ -25,7 +28,19 @@ public class RegistrationMessageBoImpl implements RegistrationMessageBo{
     
     @Override
     public boolean saveRegMsg(RegistrationDTO regMsgDto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try(Session session=HibernateUtil.getSessionFactory().openSession()){
+            regMsgRepository.setSession(session);
+            session.beginTransaction();
+            RegistrationMessage regMsg=new RegistrationMessage(
+                    regMsgDto.getTeacherId(),
+                    regMsgDto.getParentId(),
+                    regMsgDto.getRegMsg(),
+                    regMsgDto.getParent()
+            );
+            boolean result=regMsgRepository.save(regMsg);
+            session.getTransaction().commit();
+            return result;
+        }
     }
 
     @Override

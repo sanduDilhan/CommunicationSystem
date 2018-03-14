@@ -5,10 +5,12 @@
  */
 package com.ceyentra.communicationSystem.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -21,22 +23,23 @@ public class Teacher {
     private int tId;
     private String teacherCode;
     private String teacherName;
-    private String tClass;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    private ClassTeacher classTeacher;
 
     public Teacher() {
     }
 
-    public Teacher(int tId, String teacherCode, String teacherName, String tClass) {
+    public Teacher(int tId, String teacherCode, String teacherName, ClassTeacher classTeacher) {
         this.tId = tId;
         this.teacherCode = teacherCode;
         this.teacherName = teacherName;
-        this.tClass = tClass;
+        this.classTeacher = classTeacher;
     }
-    
-    public Teacher(String teacherCode, String teacherName, String tClass) {
+    public Teacher(String teacherCode, String teacherName, ClassTeacher classTeacher) {
         this.teacherCode = teacherCode;
         this.teacherName = teacherName;
-        this.tClass = tClass;
+        this.classTeacher = classTeacher;
     }
 
     /**
@@ -82,22 +85,22 @@ public class Teacher {
     }
 
     /**
-     * @return the tClass
+     * @return the classTeacher
      */
-    public String gettClass() {
-        return tClass;
+    public ClassTeacher getClassTeacher() {
+        return classTeacher;
     }
 
     /**
-     * @param tClass the tClass to set
+     * @param classTeacher the classTeacher to set
      */
-    public void settClass(String tClass) {
-        this.tClass = tClass;
+    public void setClassTeacher(ClassTeacher classTeacher) {
+        this.classTeacher = classTeacher;
     }
 
     @Override
     public String toString() {
-        return "Teacher{" + "tId=" + tId + ", teacherCode=" + teacherCode + ", teacherName=" + teacherName + ", tClass=" + tClass + '}';
+        return "Teacher{" + "tId=" + tId + ", teacherCode=" + teacherCode + ", teacherName=" + teacherName + ", classTeacher=" + classTeacher + '}';
     }
 
     

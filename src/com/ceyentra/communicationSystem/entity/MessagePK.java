@@ -5,6 +5,7 @@
  */
 package com.ceyentra.communicationSystem.entity;
 
+import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 /**
@@ -12,7 +13,7 @@ import javax.persistence.Embeddable;
  * @author sandunDilhan
  */
 @Embeddable
-public class MessagePK {
+public class MessagePK implements Serializable{
     
     private int tId;
     private int parentId;

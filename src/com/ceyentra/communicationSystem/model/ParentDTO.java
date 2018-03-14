@@ -13,24 +13,23 @@ public class ParentDTO {
     private int parentId;
     private int mobileNo;
     private String name;
-    private String studentClass;
+    private String teacherCode;
 
     public ParentDTO() {
     }
 
-    public ParentDTO(int parentId, int mobileNo, String name, String studentClass) {
+    public ParentDTO(int parentId, int mobileNo, String name, String teacherCode) {
         this.parentId = parentId;
         this.mobileNo = mobileNo;
         this.name = name;
-        this.studentClass = studentClass;
-    }
-    
-    public ParentDTO(int mobileNo, String name, String studentClass) {
-        this.mobileNo = mobileNo;
-        this.name = name;
-        this.studentClass = studentClass;
+        this.teacherCode = teacherCode;
     }
 
+    public ParentDTO(int mobileNo, String name, String teacherCode) {
+        this.mobileNo = mobileNo;
+        this.name = name;
+        this.teacherCode = teacherCode;
+    }
     /**
      * @return the parentId
      */
@@ -74,17 +73,17 @@ public class ParentDTO {
     }
 
     /**
-     * @return the studentClass
+     * @return the teacherCode
      */
-    public String getStudentClass() {
-        return studentClass;
+    public String getTeacherCode() {
+        return teacherCode;
     }
 
     /**
-     * @param studentClass the studentClass to set
+     * @param teacherCode the teacherCode to set
      */
-    public void setStudentClass(String studentClass) {
-        this.studentClass = studentClass;
+    public void setTeacherCode(String teacherCode) {
+        this.teacherCode = teacherCode;
     }
     
     

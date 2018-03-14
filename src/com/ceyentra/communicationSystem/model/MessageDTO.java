@@ -17,20 +17,20 @@ import java.util.List;
 public class MessageDTO {
     private String message;
     private Parent parent;
-    private List<Teacher>teacher;
+    private Teacher teacher;
     private MessagePK messagePk;
 
     public MessageDTO() {
     }
 
-    public MessageDTO(String message, Parent parent, List<Teacher> teacher, MessagePK messagePk) {
+    public MessageDTO(String message, Parent parent, Teacher teacher, MessagePK messagePk) {
         this.message = message;
         this.parent = parent;
         this.teacher = teacher;
         this.messagePk = messagePk;
     }
     
-    public MessageDTO(String message, Parent parent, List<Teacher> teacher) {
+    public MessageDTO(String message, Parent parent, Teacher teacher) {
         this.message = message;
         this.parent = parent;
         this.teacher = teacher;
@@ -67,14 +67,14 @@ public class MessageDTO {
     /**
      * @return the teacher
      */
-    public List<Teacher> getTeacher() {
+    public Teacher getTeacher() {
         return teacher;
     }
 
     /**
      * @param teacher the teacher to set
      */
-    public void setTeacher(List<Teacher> teacher) {
+    public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
 

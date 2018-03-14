@@ -5,14 +5,12 @@
  */
 package com.ceyentra.communicationSystem.entity;
 
-import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -26,9 +24,9 @@ public class Message {
     @JoinColumns(@JoinColumn(name = "parentId",referencedColumnName = "parentId",insertable = false,updatable = false))
     private Parent parent;
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumns(@JoinColumn(name = "tId",referencedColumnName = "tId",insertable = false,updatable = false))
-    private List<Teacher> teacher;
+    private Teacher teacher;
     
     @EmbeddedId
     private MessagePK messagePK;
@@ -36,14 +34,14 @@ public class Message {
     public Message() {
     }
 
-    public Message(String msg, Parent parent, List<Teacher> teacher, MessagePK messagePK) {
+    public Message(String msg, Parent parent, Teacher teacher, MessagePK messagePK) {
         this.msg = msg;
         this.parent = parent;
         this.teacher = teacher;
         this.messagePK = messagePK;
     }
     
-    public Message(String msg, Parent parent, List<Teacher> teacher) {
+    public Message(String msg, Parent parent, Teacher teacher) {
         this.msg = msg;
         this.parent = parent;
         this.teacher = teacher;
@@ -81,14 +79,14 @@ public class Message {
     /**
      * @return the teacher
      */
-    public List<Teacher> getTeacher() {
+    public Teacher getTeacher() {
         return teacher;
     }
 
     /**
      * @param teacher the teacher to set
      */
-    public void setTeacher(List<Teacher> teacher) {
+    public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
 
@@ -111,6 +109,5 @@ public class Message {
         return "Message{" + "msg=" + msg + ", parent=" + parent + ", teacher=" + teacher + ", messagePK=" + messagePK + '}';
     }
 
-    
     
 }

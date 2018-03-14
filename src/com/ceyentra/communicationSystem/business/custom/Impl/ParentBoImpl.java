@@ -8,7 +8,6 @@ package com.ceyentra.communicationSystem.business.custom.Impl;
 import com.ceyentra.communicationSystem.business.custom.ParentBo;
 import com.ceyentra.communicationSystem.entity.Parent;
 import com.ceyentra.communicationSystem.entity.RegistrationMessage;
-import com.ceyentra.communicationSystem.entity.RegistrationMessagePK;
 import com.ceyentra.communicationSystem.model.ParentDTO;
 import com.ceyentra.communicationSystem.model.RegistrationDTO;
 import com.ceyentra.communicationSystem.repository.RepositoryFactory;
@@ -39,7 +38,7 @@ public class ParentBoImpl implements ParentBo{
             Parent parent=new Parent(
                     parentDto.getMobileNo(),
                     parentDto.getName(),
-                    parentDto.getStudentClass()
+                    parentDto.getTeacherCode()
             );
             boolean result=parentRepository.save(parent);
             session.getTransaction().commit();
@@ -55,7 +54,7 @@ public class ParentBoImpl implements ParentBo{
             Parent parent=parentRepository.findById(parentId);
             if(parent!=null){
                 session.getTransaction().commit();
-                return new ParentDTO(parent.getParentId(), parent.getMobileNo(), parent.getName(), parent.getStudentClass());
+                return new ParentDTO(parent.getParentId(), parent.getMobileNo(), parent.getName(), parent.getTeacherCode());
             }else{
                 return null;
             }
@@ -67,12 +66,19 @@ public class ParentBoImpl implements ParentBo{
         try(Session session=HibernateUtil.getSessionFactory().openSession()){
             parentRepository.setSession(session);
             session.beginTransaction();
-            List<ParentDTO> parentList=new ArrayList<>();
-            if(parentRepository.fndAll()!=null){
-                for (ParentDTO pList : parentList) {
-                    parentList.add(new ParentDTO(pList.getParentId(), pList.getMobileNo(), pList.getName(), pList.getStudentClass()));
+            List<Parent> parentList=parentRepository.fndAll();
+            if(parentList!=null){
+                List<ParentDTO>parentDtoList=new ArrayList<>();
+                for (Parent pList : parentList) {
+                    ParentDTO parentDto=new ParentDTO(
+                            pList.getParentId(),
+                            pList.getMobileNo(),
+                            pList.getName(),
+                            pList.getTeacherCode()
+                    );
+                    parentDtoList.add(parentDto);
                 }
-                return parentList;
+                return parentDtoList;
             }else{
                 return null;
             }
@@ -90,16 +96,16 @@ public class ParentBoImpl implements ParentBo{
             Parent parent=new Parent(
                     parentDto.getMobileNo(),
                     parentDto.getName(),
-                    parentDto.getStudentClass()
+                    parentDto.getTeacherCode()
             );
             
-            RegistrationMessagePK regPK=new RegistrationMessagePK(regDto.getRegistrationMessagePK().gettId(), regDto.getRegistrationMessagePK().getParentId());
+            //RegistrationMessagePK regPK=new RegistrationMessagePK(regDto.getRegistrationMessagePK().gettId(), regDto.getRegistrationMessagePK().getParentId());
             
             RegistrationMessage regMsg=new RegistrationMessage(
+                    regDto.getTeacherId(),
+                    regDto.getParentId(),
                     regDto.getRegMsg(),
-                    regDto.getParent(),
-                    regDto.getTeacher(),
-                    regPK
+                    regDto.getParent()
             );
             boolean result=parentRepository.save(parent);
             if(result){

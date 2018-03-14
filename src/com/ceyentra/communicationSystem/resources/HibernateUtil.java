@@ -5,6 +5,7 @@
  */
 package com.ceyentra.communicationSystem.resources;
 
+import com.ceyentra.communicationSystem.entity.ClassTeacher;
 import com.ceyentra.communicationSystem.entity.Message;
 import com.ceyentra.communicationSystem.entity.Parent;
 import com.ceyentra.communicationSystem.entity.RegistrationMessage;
@@ -34,6 +35,7 @@ public class HibernateUtil {
             sessionFactory=new MetadataSources(standardServiceRegistry)
                     
                     .addAnnotatedClass(Parent.class)
+                    .addAnnotatedClass(ClassTeacher.class)
                     .addAnnotatedClass(Teacher.class)
                     .addAnnotatedClass(Message.class)
                     .addAnnotatedClass(RegistrationMessage.class)

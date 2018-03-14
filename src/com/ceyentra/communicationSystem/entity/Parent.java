@@ -21,22 +21,22 @@ public class Parent {
     private int parentId;
     private int mobileNo;
     private String name;
-    private String studentClass;
+    private String teacherCode;
     
     public Parent() {
     }
 
-    public Parent(int parentId, int mobileNo, String name, String studentClass) {
+    public Parent(int parentId, int mobileNo, String name, String teacherCode) {
         this.parentId = parentId;
         this.mobileNo = mobileNo;
         this.name = name;
-        this.studentClass = studentClass;
+        this.teacherCode = teacherCode;
     }
-    
-    public Parent(int mobileNo, String name, String studentClass) {
+
+   public Parent(int mobileNo, String name, String teacherCode) {
         this.mobileNo = mobileNo;
         this.name = name;
-        this.studentClass = studentClass;
+        this.teacherCode = teacherCode;
     }
 
     /**
@@ -82,23 +82,23 @@ public class Parent {
     }
 
     /**
-     * @return the studentClass
+     * @return the teacherCode
      */
-    public String getStudentClass() {
-        return studentClass;
+    public String getTeacherCode() {
+        return teacherCode;
     }
 
     /**
-     * @param studentClass the studentClass to set
+     * @param teacherCode the teacherCode to set
      */
-    public void setStudentClass(String studentClass) {
-        this.studentClass = studentClass;
+    public void setTeacherCode(String teacherCode) {
+        this.teacherCode = teacherCode;
     }
 
     @Override
     public String toString() {
-        return "Parent{" + "parentId=" + parentId + ", mobileNo=" + mobileNo + ", name=" + name + ", studentClass=" + studentClass + '}';
+        return "Parent{" + "parentId=" + parentId + ", mobileNo=" + mobileNo + ", name=" + name + ", teacherCode=" + teacherCode + '}';
     }
+   
 
-    
 }

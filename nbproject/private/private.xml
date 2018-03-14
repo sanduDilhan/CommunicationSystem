@@ -11,6 +11,7 @@
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/business/SuperBo.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/service/custom/impl/MessageServiceImpl.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/business/custom/TeacherBo.java</file>
+            <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/entity/ClassTeacher.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/business/custom/Impl/ParentBoImpl.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/entity/Message.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/service/custom/TeacherService.java</file>
@@ -19,6 +20,7 @@
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/service/custom/impl/ParentServiceImpl.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/service/custom/impl/RegistrationMessageServiceImpl.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/repository/custom/ParentRepository.java</file>
+            <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/presentation/ParentMessage.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/resources/HibernateUtil.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/service/SuperService.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/settings/properties.properties</file>
@@ -29,7 +31,7 @@
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/entity/RegistrationMessage.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/repository/SuperRepository.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/repository/custom/Impl/MessageRepositoryImpl.java</file>
-            <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/entity/RegistrationMessagePK.java</file>
+            <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/model/ClassTeacherDTO.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/model/MessageDTO.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/repository/custom/Impl/ParentRepositoryImpl.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/business/custom/Impl/RegistrationMessageBoImpl.java</file>
@@ -47,6 +49,7 @@
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/repository/custom/RegistrationMessageRepository.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/service/custom/ParentService.java</file>
             <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/model/RegistrationDTO.java</file>
+            <file>file:/C:/Users/sandunDilhan/Desktop/ceyentra/CommunicationSystem/src/com/ceyentra/communicationSystem/main/NewMain.java</file>
         </group>
     </open-files>
 </project-private>

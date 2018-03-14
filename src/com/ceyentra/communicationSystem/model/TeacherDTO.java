@@ -5,6 +5,8 @@
  */
 package com.ceyentra.communicationSystem.model;
 
+import com.ceyentra.communicationSystem.entity.ClassTeacher;
+
 /**
  *
  * @author sandunDilhan
@@ -13,22 +15,23 @@ public class TeacherDTO {
     private int tId;
     private String teacherCode;
     private String teacherName;
-    private String tClass;
+    
+    private ClassTeacher classTeacher;
 
     public TeacherDTO() {
     }
 
-    public TeacherDTO(int tId, String teacherCode, String teacherName, String tClass) {
+    public TeacherDTO(int tId, String teacherCode, String teacherName, ClassTeacher classTeacher) {
         this.tId = tId;
         this.teacherCode = teacherCode;
         this.teacherName = teacherName;
-        this.tClass = tClass;
+        this.classTeacher = classTeacher;
     }
     
-    public TeacherDTO(String teacherCode, String teacherName, String tClass) {
+    public TeacherDTO(String teacherCode, String teacherName, ClassTeacher classTeacher) {
         this.teacherCode = teacherCode;
         this.teacherName = teacherName;
-        this.tClass = tClass;
+        this.classTeacher = classTeacher;
     }
 
     /**
@@ -74,18 +77,17 @@ public class TeacherDTO {
     }
 
     /**
-     * @return the tClass
+     * @return the classTeacher
      */
-    public String gettClass() {
-        return tClass;
+    public ClassTeacher getClassTeacher() {
+        return classTeacher;
     }
 
     /**
-     * @param tClass the tClass to set
+     * @param classTeacher the classTeacher to set
      */
-    public void settClass(String tClass) {
-        this.tClass = tClass;
+    public void setClassTeacher(ClassTeacher classTeacher) {
+        this.classTeacher = classTeacher;
     }
-    
     
 }

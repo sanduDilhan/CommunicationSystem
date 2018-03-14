@@ -6,7 +6,9 @@
 package com.ceyentra.communicationSystem.business.custom.Impl;
 
 import com.ceyentra.communicationSystem.business.custom.TeacherBo;
+import com.ceyentra.communicationSystem.entity.ClassTeacher;
 import com.ceyentra.communicationSystem.entity.Teacher;
+import com.ceyentra.communicationSystem.model.ClassTeacherDTO;
 import com.ceyentra.communicationSystem.model.TeacherDTO;
 import com.ceyentra.communicationSystem.repository.RepositoryFactory;
 import com.ceyentra.communicationSystem.repository.custom.TeacherRepository;
@@ -33,9 +35,10 @@ public class TeacherBoImpl implements TeacherBo{
             teacherRepository.setSession(session);
             session.beginTransaction();
             Teacher teacher=new Teacher(
-                    teacherDto.getTeacherCode(),
+                   teacherDto.getTeacherCode(),
                     teacherDto.getTeacherName(),
-                    teacherDto.gettClass()
+                    teacherDto.getClassTeacher()
+            
             );
             boolean result=teacherRepository.save(teacher);
             session.getTransaction().commit();
@@ -51,7 +54,7 @@ public class TeacherBoImpl implements TeacherBo{
             Teacher teacher=teacherRepository.findById(teacherId);
             if(teacher!=null){
                 session.beginTransaction().commit();
-                return new TeacherDTO(teacher.gettId(), teacher.getTeacherCode(), teacher.getTeacherName(), teacher.gettClass());
+                return new TeacherDTO(teacher.gettId(), teacher.getTeacherCode(), teacher.getTeacherName(), teacher.getClassTeacher());
             }else{
                 return null;
             }
@@ -63,15 +66,24 @@ public class TeacherBoImpl implements TeacherBo{
         try(Session session=HibernateUtil.getSessionFactory().openSession()){
             teacherRepository.setSession(session);
             session.beginTransaction();
-            List<TeacherDTO>teacherList=new ArrayList<>();
-            if(teacherRepository.fndAll()!=null){
-                for (TeacherDTO teacherList1 : teacherList) {
-                    teacherList.add(new TeacherDTO(teacherList1.gettId(), teacherList1.getTeacherCode(), teacherList1.getTeacherName(), teacherList1.gettClass()));
+            List<Teacher>teacherList=teacherRepository.fndAll();
+            session.getTransaction().commit();
+            if(teacherList!=null){
+                List<TeacherDTO>teacherDtoList=new ArrayList<>();
+                for (Teacher tList : teacherList) {
+                    TeacherDTO teacherDto=new TeacherDTO(
+                            tList.gettId(),
+                            tList.getTeacherCode(),
+                            tList.getTeacherName(),
+                            new ClassTeacher(tList.getClassTeacher().getCalssCode(), tList.getClassTeacher().getCalssName(), tList.getClassTeacher().getGrade(), tList.getClassTeacher().getNoOfStudent())
+                    );
+                    teacherDtoList.add(teacherDto);
                 }
-                return teacherList;
+                return teacherDtoList;
             }else{
                 return null;
             }
+            
         }
     }
     

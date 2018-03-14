@@ -22,27 +22,73 @@ import javax.persistence.OneToOne;
 @Entity
 public class RegistrationMessage {
    
+    @Id
+    private int pRegMsgId;
+    private int teacherId;
+    private int parentId;
     private String regMsg;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumns(@JoinColumn(name = "parentId",referencedColumnName = "parentId",insertable = false,updatable = false))
-    private Parent parent;
-    
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumns(@JoinColumn(name = "tId",referencedColumnName = "tId",insertable = false,updatable = false))
-    private List<Teacher> teacher;
-
-    @EmbeddedId
-    private RegistrationMessagePK registrationMessagePK;
+    private List<Parent> parent;
 
     public RegistrationMessage() {
     }
 
-    public RegistrationMessage(String regMsg, Parent parent, List<Teacher> teacher, RegistrationMessagePK registrationMessagePK) {
+    public RegistrationMessage(int pRegMsgId, int teacherId, int parentId, String regMsg, List<Parent> parent) {
+        this.pRegMsgId = pRegMsgId;
+        this.teacherId = teacherId;
+        this.parentId = parentId;
         this.regMsg = regMsg;
         this.parent = parent;
-        this.teacher = teacher;
-        this.registrationMessagePK = registrationMessagePK;
+    }
+    
+    public RegistrationMessage(int teacherId, int parentId, String regMsg, List<Parent> parent) {
+        this.teacherId = teacherId;
+        this.parentId = parentId;
+        this.regMsg = regMsg;
+        this.parent = parent;
+    }
+
+    /**
+     * @return the pRegMsgId
+     */
+    public int getpRegMsgId() {
+        return pRegMsgId;
+    }
+
+    /**
+     * @param pRegMsgId the pRegMsgId to set
+     */
+    public void setpRegMsgId(int pRegMsgId) {
+        this.pRegMsgId = pRegMsgId;
+    }
+
+    /**
+     * @return the teacherId
+     */
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    /**
+     * @param teacherId the teacherId to set
+     */
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    /**
+     * @return the parentId
+     */
+    public int getParentId() {
+        return parentId;
+    }
+
+    /**
+     * @param parentId the parentId to set
+     */
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
     }
 
     /**
@@ -62,48 +108,21 @@ public class RegistrationMessage {
     /**
      * @return the parent
      */
-    public Parent getParent() {
+    public List<Parent> getParent() {
         return parent;
     }
 
     /**
      * @param parent the parent to set
      */
-    public void setParent(Parent parent) {
+    public void setParent(List<Parent> parent) {
         this.parent = parent;
-    }
-
-    /**
-     * @return the teacher
-     */
-    public List<Teacher> getTeacher() {
-        return teacher;
-    }
-
-    /**
-     * @param teacher the teacher to set
-     */
-    public void setTeacher(List<Teacher> teacher) {
-        this.teacher = teacher;
-    }
-
-    /**
-     * @return the registrationMessagePK
-     */
-    public RegistrationMessagePK getRegistrationMessagePK() {
-        return registrationMessagePK;
-    }
-
-    /**
-     * @param registrationMessagePK the registrationMessagePK to set
-     */
-    public void setRegistrationMessagePK(RegistrationMessagePK registrationMessagePK) {
-        this.registrationMessagePK = registrationMessagePK;
     }
 
     @Override
     public String toString() {
-        return "RegistrationMessage{" + "regMsg=" + regMsg + ", parent=" + parent + ", teacher=" + teacher + ", registrationMessagePK=" + registrationMessagePK + '}';
+        return "RegistrationMessage{" + "pRegMsgId=" + pRegMsgId + ", teacherId=" + teacherId + ", parentId=" + parentId + ", regMsg=" + regMsg + ", parent=" + parent + '}';
     }
-
+    
+    
 }   
