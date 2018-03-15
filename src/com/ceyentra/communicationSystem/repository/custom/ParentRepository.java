@@ -7,6 +7,7 @@ package com.ceyentra.communicationSystem.repository.custom;
 
 import com.ceyentra.communicationSystem.entity.Parent;
 import com.ceyentra.communicationSystem.repository.SuperRepository;
+import java.util.List;
 
 /**
  *
@@ -14,5 +15,5 @@ import com.ceyentra.communicationSystem.repository.SuperRepository;
  */
 public interface ParentRepository extends SuperRepository<Parent, Integer>{
     
-    
+    public List<Parent> findAllParent(String tCode)throws Exception;
 }

@@ -9,11 +9,17 @@ import com.ceyentra.communicationSystem.entity.Parent;
 import com.ceyentra.communicationSystem.repository.SuperRepositoryImpl;
 import com.ceyentra.communicationSystem.repository.custom.ParentRepository;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
  * @author sandunDilhan
  */
 public class ParentRepositoryImpl extends SuperRepositoryImpl<Parent, Integer> implements ParentRepository{
+
+    @Override
+    public List<Parent> findAllParent(String tCode) throws Exception {
+        return session.createQuery("FROM Parent where teacherCode='"+tCode+"'", Parent.class).list();
+    }
     
 }

@@ -37,7 +37,7 @@ public class TeacherBoImpl implements TeacherBo{
             Teacher teacher=new Teacher(
                    teacherDto.getTeacherCode(),
                     teacherDto.getTeacherName(),
-                    teacherDto.getClassTeacher()
+                    teacherDto.getcId()
             
             );
             boolean result=teacherRepository.save(teacher);
@@ -54,7 +54,7 @@ public class TeacherBoImpl implements TeacherBo{
             Teacher teacher=teacherRepository.findById(teacherId);
             if(teacher!=null){
                 session.beginTransaction().commit();
-                return new TeacherDTO(teacher.gettId(), teacher.getTeacherCode(), teacher.getTeacherName(), teacher.getClassTeacher());
+                return new TeacherDTO(teacher.gettId(), teacher.getTeacherCode(), teacher.getTeacherName(), teacher.getcId());
             }else{
                 return null;
             }
@@ -75,7 +75,7 @@ public class TeacherBoImpl implements TeacherBo{
                             tList.gettId(),
                             tList.getTeacherCode(),
                             tList.getTeacherName(),
-                            new ClassTeacher(tList.getClassTeacher().getCalssCode(), tList.getClassTeacher().getCalssName(), tList.getClassTeacher().getGrade(), tList.getClassTeacher().getNoOfStudent())
+                            tList.getcId()
                     );
                     teacherDtoList.add(teacherDto);
                 }

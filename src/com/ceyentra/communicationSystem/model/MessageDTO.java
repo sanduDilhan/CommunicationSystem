@@ -15,83 +15,81 @@ import java.util.List;
  * @author sandunDilhan
  */
 public class MessageDTO {
-    private String message;
-    private Parent parent;
-    private Teacher teacher;
-    private MessagePK messagePk;
+    private int msgId;
+    private String tCode;
+    private int pId;
+    private String msg;
 
     public MessageDTO() {
     }
 
-    public MessageDTO(String message, Parent parent, Teacher teacher, MessagePK messagePk) {
-        this.message = message;
-        this.parent = parent;
-        this.teacher = teacher;
-        this.messagePk = messagePk;
+    public MessageDTO(int msgId, String tCode, int pId, String msg) {
+        this.msgId = msgId;
+        this.tCode = tCode;
+        this.pId = pId;
+        this.msg = msg;
     }
     
-    public MessageDTO(String message, Parent parent, Teacher teacher) {
-        this.message = message;
-        this.parent = parent;
-        this.teacher = teacher;
+    public MessageDTO(String tCode, int pId, String msg) {
+        this.tCode = tCode;
+        this.pId = pId;
+        this.msg = msg;
     }
 
     /**
-     * @return the message
+     * @return the msgId
      */
-    public String getMessage() {
-        return message;
+    public int getMsgId() {
+        return msgId;
     }
 
     /**
-     * @param message the message to set
+     * @param msgId the msgId to set
      */
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMsgId(int msgId) {
+        this.msgId = msgId;
     }
 
     /**
-     * @return the parent
+     * @return the tCode
      */
-    public Parent getParent() {
-        return parent;
+    public String gettCode() {
+        return tCode;
     }
 
     /**
-     * @param parent the parent to set
+     * @param tCode the tCode to set
      */
-    public void setParent(Parent parent) {
-        this.parent = parent;
+    public void settCode(String tCode) {
+        this.tCode = tCode;
     }
 
     /**
-     * @return the teacher
+     * @return the pId
      */
-    public Teacher getTeacher() {
-        return teacher;
+    public int getpId() {
+        return pId;
     }
 
     /**
-     * @param teacher the teacher to set
+     * @param pId the pId to set
      */
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void setpId(int pId) {
+        this.pId = pId;
     }
 
     /**
-     * @return the messagePk
+     * @return the msg
      */
-    public MessagePK getMessagePk() {
-        return messagePk;
+    public String getMsg() {
+        return msg;
     }
 
     /**
-     * @param messagePk the messagePk to set
+     * @param msg the msg to set
      */
-    public void setMessagePk(MessagePK messagePk) {
-        this.messagePk = messagePk;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
-    
-    
     
 }

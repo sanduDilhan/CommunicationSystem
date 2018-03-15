@@ -25,6 +25,7 @@ public class TeacherServiceImpl implements TeacherService{
 
     @Override
     public boolean saveTeacher(TeacherDTO teacherDto) throws Exception {
+        System.out.println("AAA "+teacherDto);
         return teacherBo.saveTeacher(teacherDto);
     }
 

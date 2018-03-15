@@ -5,10 +5,12 @@
  */
 package com.ceyentra.communicationSystem.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -19,24 +21,33 @@ public class Parent {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int parentId;
-    private int mobileNo;
+    private String mobileNo;
     private String name;
     private String teacherCode;
+    
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private RegistrationMessage regMsg;
     
     public Parent() {
     }
 
-    public Parent(int parentId, int mobileNo, String name, String teacherCode) {
+    public Parent(int parentId, String mobileNo, String name, String teacherCode) {
         this.parentId = parentId;
         this.mobileNo = mobileNo;
         this.name = name;
         this.teacherCode = teacherCode;
+
     }
 
-   public Parent(int mobileNo, String name, String teacherCode) {
+    public Parent(String mobileNo, String name, String teacherCode) {
         this.mobileNo = mobileNo;
         this.name = name;
         this.teacherCode = teacherCode;
+    }
+    
+    public Parent(int parentId) {
+        this.parentId = parentId;
+        
     }
 
     /**
@@ -56,14 +67,14 @@ public class Parent {
     /**
      * @return the mobileNo
      */
-    public int getMobileNo() {
+    public String getMobileNo() {
         return mobileNo;
     }
 
     /**
      * @param mobileNo the mobileNo to set
      */
-    public void setMobileNo(int mobileNo) {
+    public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
     }
 
@@ -99,6 +110,7 @@ public class Parent {
     public String toString() {
         return "Parent{" + "parentId=" + parentId + ", mobileNo=" + mobileNo + ", name=" + name + ", teacherCode=" + teacherCode + '}';
     }
-   
 
+    
+    
 }

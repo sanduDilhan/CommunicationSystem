@@ -24,4 +24,6 @@ public interface ParentBo extends SuperBo{
     public List<ParentDTO>fndAll()throws Exception;
     
     public boolean saveParentsMessage(ParentDTO parentDto,RegistrationDTO regDto)throws Exception;
+    
+    public List<ParentDTO> findAllParent(String tCode) throws Exception; 
 }

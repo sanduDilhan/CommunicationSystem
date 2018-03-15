@@ -10,6 +10,7 @@ import com.ceyentra.communicationSystem.entity.Message;
 import com.ceyentra.communicationSystem.entity.Parent;
 import com.ceyentra.communicationSystem.entity.RegistrationMessage;
 import com.ceyentra.communicationSystem.entity.Teacher;
+import com.ceyentra.communicationSystem.entity.TeacherRegistration;
 import java.io.File;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -36,6 +37,7 @@ public class HibernateUtil {
                     
                     .addAnnotatedClass(Parent.class)
                     .addAnnotatedClass(ClassTeacher.class)
+                    .addAnnotatedClass(TeacherRegistration.class)
                     .addAnnotatedClass(Teacher.class)
                     .addAnnotatedClass(Message.class)
                     .addAnnotatedClass(RegistrationMessage.class)

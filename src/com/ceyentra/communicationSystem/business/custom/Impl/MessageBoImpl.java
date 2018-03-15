@@ -31,10 +31,9 @@ public class MessageBoImpl implements MessageBo{
             messageRepository.setSession(session);
             session.beginTransaction();
             Message msge=new Message(
-                    messageDto.getMessage(),
-                    messageDto.getParent(),
-                    messageDto.getTeacher(),
-                    messageDto.getMessagePk()
+                    messageDto.gettCode(),
+                    messageDto.getpId(),
+                    messageDto.getMsg()
             );
             boolean result=messageRepository.save(msge);
             session.getTransaction().commit();

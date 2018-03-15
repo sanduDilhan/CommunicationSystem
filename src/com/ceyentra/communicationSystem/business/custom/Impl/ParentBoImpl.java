@@ -103,9 +103,8 @@ public class ParentBoImpl implements ParentBo{
             
             RegistrationMessage regMsg=new RegistrationMessage(
                     regDto.getTeacherId(),
-                    regDto.getParentId(),
-                    regDto.getRegMsg(),
-                    regDto.getParent()
+                    regDto.getpName(),
+                    regDto.getRegMsg()
             );
             boolean result=parentRepository.save(parent);
             if(result){
@@ -121,6 +120,30 @@ public class ParentBoImpl implements ParentBo{
                 }
             }
             return false;
+        }
+    }
+
+    @Override
+    public List<ParentDTO> findAllParent(String tCode) throws Exception {
+        try(Session session=HibernateUtil.getSessionFactory().openSession()){
+            parentRepository.setSession(session);
+            session.beginTransaction();
+            List<Parent> parentList=parentRepository.findAllParent(tCode);
+            if(parentList!=null){
+                List<ParentDTO>parentDtoList=new ArrayList<>();
+                for (Parent pList : parentList) {
+                    ParentDTO parentDto=new ParentDTO(
+                            pList.getParentId(),
+                            pList.getMobileNo(),
+                            pList.getName(),
+                            pList.getTeacherCode()
+                    );
+                    parentDtoList.add(parentDto);
+                }
+                return parentDtoList;
+            }else{
+                return null;
+            }
         }
     }
     

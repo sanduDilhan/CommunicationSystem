@@ -25,7 +25,7 @@ public class RegistrationMessageServiceImpl implements RegistrationMessageServic
 
     @Override
     public boolean saveRegMsg(RegistrationDTO regMsgDto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return regMsgBo.saveRegMsg(regMsgDto);
     }
 
     @Override

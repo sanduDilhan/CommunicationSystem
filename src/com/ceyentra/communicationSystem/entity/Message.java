@@ -8,6 +8,9 @@ package com.ceyentra.communicationSystem.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
@@ -18,34 +21,69 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Message {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int msgId;
+    private String tCode;
+    private int pId;
     private String msg;
-    
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumns(@JoinColumn(name = "parentId",referencedColumnName = "parentId",insertable = false,updatable = false))
-    private Parent parent;
-    
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumns(@JoinColumn(name = "tId",referencedColumnName = "tId",insertable = false,updatable = false))
-    private Teacher teacher;
-    
-    @EmbeddedId
-    private MessagePK messagePK;
 
     public Message() {
     }
 
-    public Message(String msg, Parent parent, Teacher teacher, MessagePK messagePK) {
+    public Message(int msgId, String tCode, int pId, String msg) {
+        this.msgId = msgId;
+        this.tCode = tCode;
+        this.pId = pId;
         this.msg = msg;
-        this.parent = parent;
-        this.teacher = teacher;
-        this.messagePK = messagePK;
     }
     
-    public Message(String msg, Parent parent, Teacher teacher) {
+     public Message(String tCode, int pId, String msg) {
+        this.tCode = tCode;
+        this.pId = pId;
         this.msg = msg;
-        this.parent = parent;
-        this.teacher = teacher;
-    
+    }
+
+    /**
+     * @return the msgId
+     */
+    public int getMsgId() {
+        return msgId;
+    }
+
+    /**
+     * @param msgId the msgId to set
+     */
+    public void setMsgId(int msgId) {
+        this.msgId = msgId;
+    }
+
+    /**
+     * @return the tCode
+     */
+    public String gettCode() {
+        return tCode;
+    }
+
+    /**
+     * @param tCode the tCode to set
+     */
+    public void settCode(String tCode) {
+        this.tCode = tCode;
+    }
+
+    /**
+     * @return the pId
+     */
+    public int getpId() {
+        return pId;
+    }
+
+    /**
+     * @param pId the pId to set
+     */
+    public void setpId(int pId) {
+        this.pId = pId;
     }
 
     /**
@@ -62,52 +100,10 @@ public class Message {
         this.msg = msg;
     }
 
-    /**
-     * @return the parent
-     */
-    public Parent getParent() {
-        return parent;
-    }
-
-    /**
-     * @param parent the parent to set
-     */
-    public void setParent(Parent parent) {
-        this.parent = parent;
-    }
-
-    /**
-     * @return the teacher
-     */
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    /**
-     * @param teacher the teacher to set
-     */
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
-
-    /**
-     * @return the messagePK
-     */
-    public MessagePK getMessagePK() {
-        return messagePK;
-    }
-
-    /**
-     * @param messagePK the messagePK to set
-     */
-    public void setMessagePK(MessagePK messagePK) {
-        this.messagePK = messagePK;
-    }
-
     @Override
     public String toString() {
-        return "Message{" + "msg=" + msg + ", parent=" + parent + ", teacher=" + teacher + ", messagePK=" + messagePK + '}';
+        return "Message{" + "msgId=" + msgId + ", tCode=" + tCode + ", pId=" + pId + ", msg=" + msg + '}';
     }
-
+     
     
 }

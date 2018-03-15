@@ -8,6 +8,7 @@ package com.ceyentra.communicationSystem.repository;
 import com.ceyentra.communicationSystem.repository.custom.Impl.MessageRepositoryImpl;
 import com.ceyentra.communicationSystem.repository.custom.Impl.ParentRepositoryImpl;
 import com.ceyentra.communicationSystem.repository.custom.Impl.RegistrationRepositoryImpl;
+import com.ceyentra.communicationSystem.repository.custom.Impl.TeacherRegistrationRepositoryImpl;
 import com.ceyentra.communicationSystem.repository.custom.Impl.TeacherRepositoryImpl;
 
 /**
@@ -21,7 +22,7 @@ public class RepositoryFactory {
     }
     
     public enum repositoryTypes{
-        PARENT,TEACHER,MESSAGE,REGISTRATION
+        PARENT,TEACHER,MESSAGE,REGISTRATION,TEACHERREGISTRATION
     }
     
     public static RepositoryFactory getInstance(){
@@ -41,6 +42,8 @@ public class RepositoryFactory {
                 return new MessageRepositoryImpl();
             case REGISTRATION:
                 return new RegistrationRepositoryImpl();
+            case TEACHERREGISTRATION:
+                return new TeacherRegistrationRepositoryImpl();
             default:
                 return null;
         }

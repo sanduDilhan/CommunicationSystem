@@ -5,31 +5,37 @@
  */
 package com.ceyentra.communicationSystem.model;
 
+import com.ceyentra.communicationSystem.entity.RegistrationMessage;
+
 /**
  *
  * @author sandunDilhan
  */
 public class ParentDTO {
     private int parentId;
-    private int mobileNo;
+    private String mobileNo;
     private String name;
     private String teacherCode;
 
     public ParentDTO() {
     }
 
-    public ParentDTO(int parentId, int mobileNo, String name, String teacherCode) {
+    public ParentDTO(int parentId, String mobileNo, String name, String teacherCode) {
         this.parentId = parentId;
         this.mobileNo = mobileNo;
         this.name = name;
         this.teacherCode = teacherCode;
     }
-
-    public ParentDTO(int mobileNo, String name, String teacherCode) {
+    
+    public ParentDTO(String mobileNo, String name, String teacherCode) {
         this.mobileNo = mobileNo;
         this.name = name;
         this.teacherCode = teacherCode;
     }
+    public ParentDTO(int parentId) {
+        this.parentId = parentId;
+    }
+    
     /**
      * @return the parentId
      */
@@ -47,14 +53,14 @@ public class ParentDTO {
     /**
      * @return the mobileNo
      */
-    public int getMobileNo() {
+    public String getMobileNo() {
         return mobileNo;
     }
 
     /**
      * @param mobileNo the mobileNo to set
      */
-    public void setMobileNo(int mobileNo) {
+    public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
     }
 
@@ -85,6 +91,5 @@ public class ParentDTO {
     public void setTeacherCode(String teacherCode) {
         this.teacherCode = teacherCode;
     }
-    
-    
+
 }

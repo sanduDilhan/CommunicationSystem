@@ -15,23 +15,26 @@ public class TeacherDTO {
     private int tId;
     private String teacherCode;
     private String teacherName;
-    
-    private ClassTeacher classTeacher;
+    private int cId;
 
     public TeacherDTO() {
     }
 
-    public TeacherDTO(int tId, String teacherCode, String teacherName, ClassTeacher classTeacher) {
+    public TeacherDTO(int tId, String teacherCode, String teacherName, int cId) {
         this.tId = tId;
         this.teacherCode = teacherCode;
         this.teacherName = teacherName;
-        this.classTeacher = classTeacher;
+        this.cId = cId;
     }
     
-    public TeacherDTO(String teacherCode, String teacherName, ClassTeacher classTeacher) {
+    public TeacherDTO(String teacherCode, String teacherName, int cId) {
         this.teacherCode = teacherCode;
         this.teacherName = teacherName;
-        this.classTeacher = classTeacher;
+        this.cId = cId;
+    }
+    
+     public TeacherDTO(String teacherCode) {
+        this.teacherCode = teacherCode;
     }
 
     /**
@@ -77,17 +80,17 @@ public class TeacherDTO {
     }
 
     /**
-     * @return the classTeacher
+     * @return the cId
      */
-    public ClassTeacher getClassTeacher() {
-        return classTeacher;
+    public int getcId() {
+        return cId;
     }
 
     /**
-     * @param classTeacher the classTeacher to set
+     * @param cId the cId to set
      */
-    public void setClassTeacher(ClassTeacher classTeacher) {
-        this.classTeacher = classTeacher;
+    public void setcId(int cId) {
+        this.cId = cId;
     }
     
 }

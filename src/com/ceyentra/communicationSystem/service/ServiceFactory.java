@@ -8,6 +8,7 @@ package com.ceyentra.communicationSystem.service;
 import com.ceyentra.communicationSystem.service.custom.impl.MessageServiceImpl;
 import com.ceyentra.communicationSystem.service.custom.impl.ParentServiceImpl;
 import com.ceyentra.communicationSystem.service.custom.impl.RegistrationMessageServiceImpl;
+import com.ceyentra.communicationSystem.service.custom.impl.TeacherRegistrationServiceImpl;
 import com.ceyentra.communicationSystem.service.custom.impl.TeacherServiceImpl;
 
 /**
@@ -21,7 +22,7 @@ public class ServiceFactory {
     }
     
     public enum ServiceTypes{
-        PARENT,MESSAGE,TEACHER,REGISTRATION
+        PARENT,MESSAGE,TEACHER,REGISTRATION,TEACHERREGISTRATION
     }
     
     public static ServiceFactory getInstance(){
@@ -41,6 +42,8 @@ public class ServiceFactory {
                 return new MessageServiceImpl();
             case REGISTRATION:
                 return new RegistrationMessageServiceImpl();
+            case TEACHERREGISTRATION:
+                return new TeacherRegistrationServiceImpl();
             default:
                 return null;
         }

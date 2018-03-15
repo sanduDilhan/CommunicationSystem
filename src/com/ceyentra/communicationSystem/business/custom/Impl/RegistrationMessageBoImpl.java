@@ -33,9 +33,8 @@ public class RegistrationMessageBoImpl implements RegistrationMessageBo{
             session.beginTransaction();
             RegistrationMessage regMsg=new RegistrationMessage(
                     regMsgDto.getTeacherId(),
-                    regMsgDto.getParentId(),
-                    regMsgDto.getRegMsg(),
-                    regMsgDto.getParent()
+                    regMsgDto.getpName(),
+                    regMsgDto.getRegMsg()
             );
             boolean result=regMsgRepository.save(regMsg);
             session.getTransaction().commit();

@@ -14,28 +14,24 @@ import java.util.List;
  */
 public class RegistrationDTO {
     private int pRegMsgId;
-    private int teacherId;
-    private int parentId;
+    private String teacherId;
+    private String pName;
     private String regMsg;
-    
-    private List<Parent> parent;
 
     public RegistrationDTO() {
     }
 
-    public RegistrationDTO(int pRegMsgId, int teacherId, int parentId, String regMsg, List<Parent> parent) {
+    public RegistrationDTO(int pRegMsgId, String teacherId, String pName, String regMsg) {
         this.pRegMsgId = pRegMsgId;
         this.teacherId = teacherId;
-        this.parentId = parentId;
+        this.pName = pName;
         this.regMsg = regMsg;
-        this.parent = parent;
     }
     
-    public RegistrationDTO(int teacherId, int parentId, String regMsg, List<Parent> parent) {
+    public RegistrationDTO(String teacherId, String pName, String regMsg) {
         this.teacherId = teacherId;
-        this.parentId = parentId;
+        this.pName = pName;
         this.regMsg = regMsg;
-        this.parent = parent;
     }
 
     /**
@@ -55,29 +51,29 @@ public class RegistrationDTO {
     /**
      * @return the teacherId
      */
-    public int getTeacherId() {
+    public String getTeacherId() {
         return teacherId;
     }
 
     /**
      * @param teacherId the teacherId to set
      */
-    public void setTeacherId(int teacherId) {
+    public void setTeacherId(String teacherId) {
         this.teacherId = teacherId;
     }
 
     /**
-     * @return the parentId
+     * @return the pName
      */
-    public int getParentId() {
-        return parentId;
+    public String getpName() {
+        return pName;
     }
 
     /**
-     * @param parentId the parentId to set
+     * @param pName the pName to set
      */
-    public void setParentId(int parentId) {
-        this.parentId = parentId;
+    public void setpName(String pName) {
+        this.pName = pName;
     }
 
     /**
@@ -92,20 +88,6 @@ public class RegistrationDTO {
      */
     public void setRegMsg(String regMsg) {
         this.regMsg = regMsg;
-    }
-
-    /**
-     * @return the parent
-     */
-    public List<Parent> getParent() {
-        return parent;
-    }
-
-    /**
-     * @param parent the parent to set
-     */
-    public void setParent(List<Parent> parent) {
-        this.parent = parent;
     }
     
     

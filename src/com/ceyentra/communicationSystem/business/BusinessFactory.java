@@ -9,6 +9,7 @@ import com.ceyentra.communicationSystem.business.custom.Impl.MessageBoImpl;
 import com.ceyentra.communicationSystem.business.custom.Impl.ParentBoImpl;
 import com.ceyentra.communicationSystem.business.custom.Impl.RegistrationMessageBoImpl;
 import com.ceyentra.communicationSystem.business.custom.Impl.TeacherBoImpl;
+import com.ceyentra.communicationSystem.business.custom.Impl.TeacherRegistrationBoImpl;
 
 /**
  *
@@ -22,7 +23,7 @@ public class BusinessFactory {
     }
     
     public enum BOTypes{
-        PARENT,TEACHER,MESSAGE,REGISTRATION
+        PARENT,TEACHER,MESSAGE,REGISTRATION,TEACHERREGISTRATION
     }
     
     public static BusinessFactory getInstance(){
@@ -42,6 +43,8 @@ public class BusinessFactory {
                 return new MessageBoImpl();
             case REGISTRATION:
                 return new RegistrationMessageBoImpl();
+            case TEACHERREGISTRATION:
+                return new TeacherRegistrationBoImpl();
                 default:
                     return null;
         }

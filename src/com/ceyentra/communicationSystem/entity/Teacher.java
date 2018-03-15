@@ -23,23 +23,26 @@ public class Teacher {
     private int tId;
     private String teacherCode;
     private String teacherName;
-    
-    @OneToOne(cascade = CascadeType.ALL)
-    private ClassTeacher classTeacher;
+    private int cId;
 
     public Teacher() {
     }
 
-    public Teacher(int tId, String teacherCode, String teacherName, ClassTeacher classTeacher) {
+    public Teacher(int tId, String teacherCode, String teacherName, int cId) {
         this.tId = tId;
         this.teacherCode = teacherCode;
         this.teacherName = teacherName;
-        this.classTeacher = classTeacher;
+        this.cId = cId;
     }
-    public Teacher(String teacherCode, String teacherName, ClassTeacher classTeacher) {
+
+    public Teacher(String teacherCode, String teacherName, int cId) {
         this.teacherCode = teacherCode;
         this.teacherName = teacherName;
-        this.classTeacher = classTeacher;
+        this.cId = cId;
+    }
+    
+    public Teacher(String teacherCode) {
+        this.teacherCode = teacherCode;
     }
 
     /**
@@ -85,23 +88,23 @@ public class Teacher {
     }
 
     /**
-     * @return the classTeacher
+     * @return the cId
      */
-    public ClassTeacher getClassTeacher() {
-        return classTeacher;
+    public int getcId() {
+        return cId;
     }
 
     /**
-     * @param classTeacher the classTeacher to set
+     * @param cId the cId to set
      */
-    public void setClassTeacher(ClassTeacher classTeacher) {
-        this.classTeacher = classTeacher;
+    public void setcId(int cId) {
+        this.cId = cId;
     }
 
     @Override
     public String toString() {
-        return "Teacher{" + "tId=" + tId + ", teacherCode=" + teacherCode + ", teacherName=" + teacherName + ", classTeacher=" + classTeacher + '}';
+        return "Teacher{" + "tId=" + tId + ", teacherCode=" + teacherCode + ", teacherName=" + teacherName + ", cId=" + cId + '}';
     }
-
+    
     
 }

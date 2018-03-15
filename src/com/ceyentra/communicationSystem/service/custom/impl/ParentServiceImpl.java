@@ -43,5 +43,10 @@ public class ParentServiceImpl implements ParentService{
     public boolean saveParentsMessage(ParentDTO parentDto, RegistrationDTO regDto) throws Exception {
         return parentBo.saveParentsMessage(parentDto, regDto);
     }
+
+    @Override
+    public List<ParentDTO> findAllParent(String tCode) throws Exception {
+        return parentBo.findAllParent(tCode);
+    }
     
 }

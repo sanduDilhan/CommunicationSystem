@@ -17,7 +17,7 @@ public class MessagePK implements Serializable{
     
     private int tId;
     private int parentId;
-
+     
     public MessagePK() {
     }
 
